@@ -1,0 +1,38 @@
+.wp-block-startgo-plugin-formulario-bloque {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.wp-block-startgo-plugin-formulario-bloque form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.wp-block-startgo-plugin-formulario-bloque .form-label {
+    font-weight: 600;
+    color: #495057;
+}
+
+.wp-block-startgo-plugin-formulario-bloque .form-control {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.wp-block-startgo-plugin-formulario-bloque .form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.wp-block-startgo-plugin-formulario-bloque .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.wp-block-startgo-plugin-formulario-bloque .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
