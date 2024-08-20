@@ -8,6 +8,13 @@
  * Domain Path: /languages
  */
 
+ function startgo_plugin_cargar_textdomain() {
+    load_plugin_textdomain('startgo-plugin', false, dirname(plugin_basename(__FILE__)) . '/languages');
+}
+
+add_action('plugins_loaded', 'startgo_plugin_cargar_textdomain');
+
+
 
 function startgo_plugin_cargar_assets() {
     wp_enqueue_script(
@@ -25,7 +32,27 @@ function startgo_plugin_cargar_assets() {
     );
 }
 
+function enqueue_custom_styles() {
+    wp_enqueue_style(
+        'custom-style', // Handle
+        get_template_directory_uri() . '/css/style.css', // Ruta al archivo CSS
+        array(), // Dependencias
+        '1.0', // Versión
+        'all' // Medios
+    );
+}
+add_action('wp_enqueue_scripts', 'enqueue_custom_styles');
+
 add_action('enqueue_block_editor_assets', 'startgo_plugin_cargar_assets');
+
+function enqueue_select2() {
+    // Registrar e incluir el script de Select2
+    wp_enqueue_script('select2', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js', array('jquery'), '4.0.13', true);
+
+    // Registrar e incluir el estilo de Select2
+    wp_enqueue_style('select2-css', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css');
+}
+add_action('wp_enqueue_scripts', 'enqueue_select2');
 
 function startgo_plugin_cargar_scripts_frontend() {
     wp_enqueue_script(
@@ -147,16 +174,22 @@ function startgo_plugin_shortcode_sugerencias() {
         echo '<div class="alert alert-success">La sugerencia se ha actualizado correctamente.</div>';
     }
 
+    // Obtener la página actual
+    $paged = get_query_var('paged') ? get_query_var('paged') : 1;
+
+    // Ajustar la consulta para la paginación
     $args = array(
         'post_type' => 'sugerencias',
-        'posts_per_page' => -1
+        'posts_per_page' => 10, // Número de posts por página
+        'paged' => $paged // Página actual
     );
 
     $query = new WP_Query($args);
     if ($query->have_posts()) {
-        // Incluir clases de Bootstrap para el estilo de la tabla
-        $output = '<table class="table table-striped">';
-        $output .= '<thead><tr><th>Nombre</th><th>Apellido</th><th>Email</th><th>Sugerencias</th><th>Acciones</th></tr></thead><tbody>';
+        // Incluir clases de Bootstrap para el estilo de la tabla y hacerlo responsive
+        $output = '<div class="table-responsive-sm">';
+        $output .= '<table class="table table-bordered">';
+        $output .= '<thead class="thead-dark"><tr><th>Nombre</th><th>Apellido</th><th>Email</th><th>Sugerencias</th><th>Acciones</th></tr></thead><tbody>';
         while ($query->have_posts()) {
             $query->the_post();
             $post_id = get_the_ID(); // Obtener el ID del post actual
@@ -170,15 +203,44 @@ function startgo_plugin_shortcode_sugerencias() {
             $output .= '</tr>';
         }
         $output .= '</tbody></table>';
+        $output .= '</div>'; // Cierre de div.table-responsive
+        
+        // Agregar paginación
+        $big = 999999999; // Número grande para reemplazar
+        $pagination_links = paginate_links(array(
+            'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+            'format' => '?paged=%#%',
+            'current' => max(1, get_query_var('paged')),
+            'total' => $query->max_num_pages,
+            'prev_text' => __('Previous', 'startgo-plugin'),
+            'next_text' => __('Next', 'startgo-plugin'),
+            'type' => 'array', // Devuelve un array en lugar de una cadena
+        ));
+
+        if ($pagination_links) {
+            $output .= '<div class="pagination-container">';
+            $output .= '<nav aria-label="Page navigation">';
+            $output .= '<ul class="pagination">';
+
+            // Crear el HTML para los enlaces de paginación
+            foreach ($pagination_links as $link) {
+                $output .= '<li class="page-item">' . $link . '</li>';
+            }
+
+            $output .= '</ul></nav>';
+            $output .= '</div>'; // Cierre del contenedor de paginación
+        }
+
         wp_reset_postdata();
     } else {
-        $output = 'No se encontraron sugerencias.';
+        $output = '<div class="alert alert-danger" role="alert"> No se encontraron sugerencias.</div>';
     }
 
     return $output;
 }
 
 add_shortcode('mostrar_sugerencias', 'startgo_plugin_shortcode_sugerencias');
+
 
 
 

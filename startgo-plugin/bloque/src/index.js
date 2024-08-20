@@ -4,6 +4,7 @@ import { PanelBody, ColorPalette } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { useEffect } from '@wordpress/element';
 import { select } from '@wordpress/data';
+import './style.css';
 
 registerBlockType('startgo-plugin/formulario-bloque', {
     title: __('Bloque de Formulario', 'startgo-plugin'),
@@ -53,31 +54,35 @@ registerBlockType('startgo-plugin/formulario-bloque', {
                     </PanelBody>
                 </InspectorControls>
                 <div {...blockProps}>
-                    <form>
+                    <div id="alert-container"></div>
+                    <form className="formulario-sugerencias">
                         <input 
+                            className="form-control nombre" 
                             type="text" 
                             name="nombre" 
-                            placeholder="Nombre" 
+                            placeholder={__('Nombre', 'startgo-plugin')} 
                             value={userNombre}
                             onChange={(e) => setAttributes({ userNombre: e.target.value })}
                         />
                         <input 
+                            className="form-control apellido" 
                             type="text" 
                             name="apellido" 
-                            placeholder="Apellido" 
+                            placeholder={__('Apellido', 'startgo-plugin')} 
                             value={userApellido}
                             onChange={(e) => setAttributes({ userApellido: e.target.value })}
                         />
                         <input 
+                            className="form-control email" 
                             type="email" 
                             name="email" 
-                            placeholder="Correo Electrónico" 
+                            placeholder={__('Correo Electrónico', 'startgo-plugin')} 
                             value={userEmail}
                             onChange={(e) => setAttributes({ userEmail: e.target.value })}
                         />
-                        <textarea name="sugerencias" placeholder="Sugerencias"></textarea>
-                        <select id="pais" name="pais"></select>
-                        <button type="submit">Enviar</button>
+                        <textarea className="form-control sugerencias" name="sugerencias" placeholder={__('Sugerencias', 'startgo-plugin')}></textarea>
+                        <select id="pais" name="pais" className="form-control pais"></select>
+                        <button type="submit" className="btn btn-primary">{__('Enviar', 'startgo-plugin')}</button>
                     </form>
                 </div>
             </>
@@ -89,13 +94,14 @@ registerBlockType('startgo-plugin/formulario-bloque', {
 
         return (
             <div {...blockProps}>
-                <form>
-                    <input type="text" name="nombre" placeholder="Nombre" defaultValue={userNombre} />
-                    <input type="text" name="apellido" placeholder="Apellido" defaultValue={userApellido} />
-                    <input type="email" name="email" placeholder="Correo Electrónico" defaultValue={userEmail} />
-                    <textarea name="sugerencias" placeholder="Sugerencias"></textarea>
-                    <select id="pais" name="pais"></select>
-                    <button type="submit">Enviar</button>
+                <div id="alert-container"></div>
+                <form className="formulario-sugerencias">
+                    <input className="form-control nombre" type="text" name="nombre" placeholder={__('Nombre', 'startgo-plugin')} defaultValue={userNombre} />
+                    <input className="form-control apellido" type="text" name="apellido" placeholder={__('Apellido', 'startgo-plugin')} defaultValue={userApellido} />
+                    <input className="form-control email" type="email" name="email" placeholder={__('Correo Electrónico', 'startgo-plugin')} defaultValue={userEmail} />
+                    <textarea className="form-control sugerencias" name="sugerencias" placeholder={__('Sugerencias', 'startgo-plugin')}></textarea>
+                    <select id="pais" name="pais" className="form-control pais"></select>
+                    <button type="submit" className="btn btn-primary">{__('Enviar', 'startgo-plugin')}</button>
                 </form>
             </div>
         );

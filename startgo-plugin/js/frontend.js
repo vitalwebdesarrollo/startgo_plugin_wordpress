@@ -21,6 +21,13 @@ jQuery(document).ready(function ($) {
             data.forEach(function (pais) {
                 selectPais.append('<option value="' + pais.name.common + '">' + pais.name.common + '</option>');
             });
+
+            // Inicializar Select2 después de cargar los datos
+            selectPais.select2({
+                placeholder: "Seleccione un país",
+                allowClear: true,
+                width: '100%' // Ajustar el ancho del select
+            });
         }
     });
 

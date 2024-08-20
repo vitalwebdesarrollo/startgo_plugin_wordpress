@@ -10,13 +10,13 @@ $uri = $_SERVER['REQUEST_URI'];
 if (preg_match('/\/(\d+)\/editar-ficha\/$/', $uri, $matches)) {
     $post_id = $matches[1];
 } else {
-    wp_die('ID de sugerencia no válido');
+    wp_die(__('ID de sugerencia no válido', 'startgo-plugin'));
 }
 
 // Verificar que el post existe y es del tipo correcto
 $post = get_post($post_id);
 if (!$post || get_post_type($post) !== 'sugerencias') {
-    wp_die('Sugerencia no encontrada');
+    wp_die(__('Sugerencia no encontrada', 'startgo-plugin'));
 }
 
 // Manejar el envío del formulario
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     update_field('sugerencias', sanitize_textarea_field($_POST['sugerencias']), $post_id);
     update_field('pais', sanitize_text_field($_POST['pais']), $post_id);
 
-    echo '<div class="alert alert-success">La sugerencia ha sido actualizada correctamente.</div>';
+    echo '<div class="alert alert-success">' . __('La sugerencia ha sido actualizada correctamente.', 'startgo-plugin') . '</div>';
 }
 
 // Obtener los datos actuales del post
@@ -66,30 +66,31 @@ $pais = get_field('pais', $post_id);
     </style>
 </head>
 <body>
-    <h1>Editar Sugerencia</h1>
+    <h1><?php _e('Editar Sugerencia', 'startgo-plugin'); ?></h1>
     <form method="post">
         <div class="form-group">
-        <input type="hidden" name="post_id" value="<?php echo esc_attr($post_id); ?>">
-            <label for="nombre">Nombre:</label>
+            <input type="hidden" name="post_id" value="<?php echo esc_attr($post_id); ?>">
+            <label for="nombre"><?php _e('Nombre:', 'startgo-plugin'); ?></label>
             <input type="text" id="nombre" name="nombre" value="<?php echo esc_attr($nombre); ?>" required>
         </div>
         <div class="form-group">
-            <label for="apellido">Apellido:</label>
+            <label for="apellido"><?php _e('Apellido:', 'startgo-plugin'); ?></label>
             <input type="text" id="apellido" name="apellido" value="<?php echo esc_attr($apellido); ?>" required>
         </div>
         <div class="form-group">
-            <label for="email">Correo Electrónico:</label>
+            <label for="email"><?php _e('Correo Electrónico:', 'startgo-plugin'); ?></label>
             <input type="email" id="email" name="email" value="<?php echo esc_attr($email); ?>" required>
         </div>
         <div class="form-group">
-            <label for="sugerencias">Sugerencias:</label>
+            <label for="sugerencias"><?php _e('Sugerencias:', 'startgo-plugin'); ?></label>
             <textarea id="sugerencias" name="sugerencias" rows="4" required><?php echo esc_textarea($sugerencias); ?></textarea>
         </div>
         <div class="form-group">
-            <label for="pais">País:</label>
+            <label for="pais"><?php _e('País:', 'startgo-plugin'); ?></label>
             <input type="text" id="pais" name="pais" value="<?php echo esc_attr($pais); ?>" required>
         </div>
-        <button type="submit">Actualizar Sugerencia</button>
+        <div id="alert-container"></div>
+        <button type="submit"><?php _e('Actualizar Sugerencia', 'startgo-plugin'); ?></button>
     </form>
     <?php wp_footer(); ?>
 </body>

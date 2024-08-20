@@ -1,38 +1,38 @@
-.wp-block-startgo-plugin-formulario-bloque {
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.wp-block-startgo-plugin-formulario-bloque form {
+/* Estilos para el bloque de formulario */
+.formulario-sugerencias {
     max-width: 600px;
     margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.wp-block-startgo-plugin-formulario-bloque .form-label {
-    font-weight: 600;
-    color: #495057;
-}
-
-.wp-block-startgo-plugin-formulario-bloque .form-control {
-    border: 1px solid #ced4da;
+.formulario-sugerencias .form-control {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.wp-block-startgo-plugin-formulario-bloque .form-control:focus {
-    border-color: #80bdff;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+.formulario-sugerencias .btn {
+    width: 100%;
+    padding: 30px;
+    border-radius: 4px;
 }
 
-.wp-block-startgo-plugin-formulario-bloque .btn-primary {
+.formulario-sugerencias .btn-primary {
     background-color: #007bff;
     border-color: #007bff;
-    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    color: #fff;
 }
 
-.wp-block-startgo-plugin-formulario-bloque .btn-primary:hover {
+.formulario-sugerencias .btn-primary:hover {
     background-color: #0056b3;
-    border-color: #0056b3;
+    border-color: #004085;
+}
+
+.formulario-sugerencias textarea.form-control {
+    height: 100px;
 }

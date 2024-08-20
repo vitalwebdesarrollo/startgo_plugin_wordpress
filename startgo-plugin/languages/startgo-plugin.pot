@@ -1,0 +1,77 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: StartGo Plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-20 14:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.11; wp-6.6.1\n"
+"X-Domain: startgo-plugin"
+
+#: templates/editar-ficha.php:93
+msgid "Actualizar Sugerencia"
+msgstr ""
+
+#: templates/editar-ficha.php:77
+msgid "Apellido:"
+msgstr ""
+
+#: templates/editar-ficha.php:81
+msgid "Correo Electrónico:"
+msgstr ""
+
+#. Author of the plugin
+msgid "Edgar Paez"
+msgstr ""
+
+#: templates/editar-ficha.php:69
+msgid "Editar Sugerencia"
+msgstr ""
+
+#: templates/editar-ficha.php:13
+msgid "ID de sugerencia no válido"
+msgstr ""
+
+#: templates/editar-ficha.php:41
+msgid "La sugerencia ha sido actualizada correctamente."
+msgstr ""
+
+#: templates/editar-ficha.php:73
+msgid "Nombre:"
+msgstr ""
+
+#: templates/editar-ficha.php:89
+msgid "País:"
+msgstr ""
+
+#. Description of the plugin
+msgid "Plugin desarrollado para la prueba técnica de StartGo."
+msgstr ""
+
+#. Name of the plugin
+msgid "StartGo Plugin"
+msgstr ""
+
+#: startgo-plugin.php:152
+msgid "Sugerencia"
+msgstr ""
+
+#: templates/editar-ficha.php:19
+msgid "Sugerencia no encontrada"
+msgstr ""
+
+#: startgo-plugin.php:151
+msgid "Sugerencias"
+msgstr ""
+
+#: templates/editar-ficha.php:85
+msgid "Sugerencias:"
+msgstr ""

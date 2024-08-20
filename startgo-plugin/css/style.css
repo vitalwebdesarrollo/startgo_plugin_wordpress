@@ -1,0 +1,42 @@
+/* Contenedor de paginación centrado */
+.pagination-container {
+    text-align: center; /* Centra el contenido del contenedor */
+    margin-top: 20px; /* Espacio superior para separar de la tabla */
+}
+
+/* Estilo para la paginación */
+.pagination {
+    display: inline-flex; /* Muestra los elementos de la lista en línea */
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.page-item {
+    margin: 0 2px; /* Espacio entre los elementos de la página */
+}
+
+.page-link {
+    display: block;
+    padding: 0.5rem 0.75rem; /* Espacio interno de los enlaces de la página */
+    font-size: 1rem; /* Tamaño de fuente */
+    line-height: 1.25; /* Altura de línea */
+    color: #007bff; /* Color de texto para enlaces */
+    background-color: #fff; /* Fondo blanco */
+    border: 1px solid #dee2e6; /* Borde de los enlaces */
+    border-radius: 0.25rem; /* Bordes redondeados */
+}
+
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff; /* Color de texto para el enlace activo */
+    background-color: #007bff; /* Fondo azul para el enlace activo */
+    border-color: #007bff; /* Borde azul para el enlace activo */
+}
+
+.page-item.disabled .page-link {
+    color: #6c757d; /* Color de texto para el enlace deshabilitado */
+    background-color: #fff; /* Fondo blanco para el enlace deshabilitado */
+    border-color: #dee2e6; /* Borde gris claro para el enlace deshabilitado */
+    cursor: not-allowed; /* Cursor de no permitido */
+}
