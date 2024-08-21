@@ -8,6 +8,7 @@
  * Domain Path: /languages
  */
 
+ //Función para la carga de idioma
  function startgo_plugin_cargar_textdomain() {
     load_plugin_textdomain('startgo-plugin', false, dirname(plugin_basename(__FILE__)) . '/languages');
 }
@@ -15,7 +16,7 @@
 add_action('plugins_loaded', 'startgo_plugin_cargar_textdomain');
 
 
-
+//carga de assets del bloque de gutemberg
 function startgo_plugin_cargar_assets() {
     wp_enqueue_script(
         'startgo-plugin-bloque',
@@ -167,11 +168,11 @@ add_action('init', 'startgo_plugin_crear_post_type_sugerencias');
 
 function startgo_plugin_shortcode_sugerencias() {
     if (!current_user_can('administrator')) {
-        return '<div class="alert alert-primary" role="alert"> No tienes permiso para ver este contenido.</div>';
+        return '<div class="alert alert-primary" role="alert">' . __('No tienes permiso para ver este contenido.', 'startgo-plugin') . '</div>';
     }
 
     if (isset($_GET['updated']) && $_GET['updated'] == 'true') {
-        echo '<div class="alert alert-success">La sugerencia se ha actualizado correctamente.</div>';
+        echo '<div class="alert alert-success">' . __('La sugerencia se ha actualizado correctamente.', 'startgo-plugin') . '</div>';
     }
 
     // Obtener la página actual
@@ -186,27 +187,31 @@ function startgo_plugin_shortcode_sugerencias() {
 
     $query = new WP_Query($args);
     if ($query->have_posts()) {
-        // Incluir clases de Bootstrap para el estilo de la tabla y hacerlo responsive
         $output = '<div class="table-responsive-sm">';
         $output .= '<table class="table table-bordered">';
-        $output .= '<thead class="thead-dark"><tr><th>Nombre</th><th>Apellido</th><th>Email</th><th>Sugerencias</th><th>Acciones</th></tr></thead><tbody>';
+        $output .= '<thead class="thead-dark"><tr>';
+        $output .= '<th>' . __('Nombre', 'startgo-plugin') . '</th>';
+        $output .= '<th>' . __('Apellido', 'startgo-plugin') . '</th>';
+        $output .= '<th>' . __('Email', 'startgo-plugin') . '</th>';
+        $output .= '<th>' . __('Sugerencias', 'startgo-plugin') . '</th>';
+        $output .= '<th>' . __('Acciones', 'startgo-plugin') . '</th>';
+        $output .= '</tr></thead><tbody>';
+
         while ($query->have_posts()) {
             $query->the_post();
-            $post_id = get_the_ID(); // Obtener el ID del post actual
+            $post_id = get_the_ID();
             $output .= '<tr>';
             $output .= '<td>' . esc_html(get_field('nombre')) . '</td>';
             $output .= '<td>' . esc_html(get_field('apellido')) . '</td>';
             $output .= '<td>' . esc_html(get_field('email')) . '</td>';
             $output .= '<td>' . esc_html(get_field('sugerencias')) . '</td>';
-            // Agregar botón "Editar"
-            $output .= '<td><a href="' . site_url() . '/' . $post_id . '/editar-ficha/" class="btn btn-primary">Editar</a></td>';
+            $output .= '<td><a href="' . site_url() . '/' . $post_id . '/editar-ficha/" class="btn btn-primary">' . __('Editar', 'startgo-plugin') . '</a></td>';
             $output .= '</tr>';
         }
         $output .= '</tbody></table>';
-        $output .= '</div>'; // Cierre de div.table-responsive
-        
-        // Agregar paginación
-        $big = 999999999; // Número grande para reemplazar
+        $output .= '</div>';
+
+        $big = 999999999;
         $pagination_links = paginate_links(array(
             'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
             'format' => '?paged=%#%',
@@ -214,7 +219,7 @@ function startgo_plugin_shortcode_sugerencias() {
             'total' => $query->max_num_pages,
             'prev_text' => __('Previous', 'startgo-plugin'),
             'next_text' => __('Next', 'startgo-plugin'),
-            'type' => 'array', // Devuelve un array en lugar de una cadena
+            'type' => 'array',
         ));
 
         if ($pagination_links) {
@@ -222,18 +227,17 @@ function startgo_plugin_shortcode_sugerencias() {
             $output .= '<nav aria-label="Page navigation">';
             $output .= '<ul class="pagination">';
 
-            // Crear el HTML para los enlaces de paginación
             foreach ($pagination_links as $link) {
                 $output .= '<li class="page-item">' . $link . '</li>';
             }
 
             $output .= '</ul></nav>';
-            $output .= '</div>'; // Cierre del contenedor de paginación
+            $output .= '</div>';
         }
 
         wp_reset_postdata();
     } else {
-        $output = '<div class="alert alert-danger" role="alert"> No se encontraron sugerencias.</div>';
+        $output = '<div class="alert alert-danger" role="alert">' . __('No se encontraron sugerencias.', 'startgo-plugin') . '</div>';
     }
 
     return $output;
