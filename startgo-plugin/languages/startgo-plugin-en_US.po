@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: StartGo Plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-20 14:52+0000\n"
-"PO-Revision-Date: 2024-08-21 13:39+0200\n"
+"PO-Revision-Date: 2024-08-21 13:57+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -63,11 +63,11 @@ msgstr "StartGo Plugin"
 msgid "Sugerencia"
 msgstr "Suggestion"
 
-#: startgo-plugin.php:193
+#: startgo-plugin.php:193 bloque/src/index.js:63 bloque/src/index.js:99
 msgid "Nombre"
 msgstr "Name"
 
-#: startgo-plugin.php:194
+#: startgo-plugin.php:194 bloque/src/index.js:71 bloque/src/index.js:100
 msgid "Apellido"
 msgstr "Last name"
 
@@ -75,7 +75,8 @@ msgstr "Last name"
 msgid "Email"
 msgstr "Email"
 
-#: startgo-plugin.php:196 startgo-plugin.php:151
+#: startgo-plugin.php:196 bloque/src/index.js:83 bloque/src/index.js:102
+#: startgo-plugin.php:151
 msgid "Sugerencias"
 msgstr "Suggestions"
 
@@ -94,6 +95,22 @@ msgstr "Previous"
 #: startgo-plugin.php:221
 msgid "Siguiente"
 msgstr "Next"
+
+#: bloque/src/index.js:10
+msgid "Bloque de Formulario"
+msgstr "Form block"
+
+#: bloque/src/index.js:49
+msgid "Color de Fondo"
+msgstr "Background Color"
+
+#: bloque/src/index.js:79 bloque/src/index.js:101
+msgid "Correo Electrónico"
+msgstr "Email"
+
+#: bloque/src/index.js:85 bloque/src/index.js:104
+msgid "Enviar"
+msgstr "Send"
 
 #: templates/editar-ficha.php:19
 msgid "Sugerencia no encontrada"

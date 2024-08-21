@@ -96,6 +96,59 @@ msgstr ""
 msgid "Siguiente"
 msgstr ""
 
+#: bloque/src/index.js:10
+msgid "Bloque de Formulario"
+msgstr ""
+
+#: bloque/src/index.js:49
+msgid "Color de Fondo"
+msgstr ""
+
+#: bloque/src/index.js:63
+msgid "Nombre"
+msgstr ""
+
+#: bloque/src/index.js:71
+msgid "Apellido"
+msgstr ""
+
+#: bloque/src/index.js:79
+msgid "Correo Electrónico"
+msgstr ""
+
+#: bloque/src/index.js:79
+msgid "Correo Electrónico"
+msgstr ""
+
+#: bloque/src/index.js:83
+msgid "Sugerencias"
+msgstr ""
+
+#: bloque/src/index.js:85
+msgid "Enviar"
+msgstr ""
+
+#: bloque/src/index.js:99
+msgid "Nombre"
+msgstr ""
+
+#: bloque/src/index.js:100
+msgid "Apellido"
+msgstr ""
+
+#: bloque/src/index.js:101
+msgid "Correo Electrónico"
+msgstr ""
+
+#: bloque/src/index.js:102
+msgid "Sugerencias"
+msgstr ""
+
+#: bloque/src/index.js:104
+msgid "Enviar"
+msgstr ""
+
+
 #: templates/editar-ficha.php:19
 msgid "Sugerencia no encontrada"
 msgstr ""
