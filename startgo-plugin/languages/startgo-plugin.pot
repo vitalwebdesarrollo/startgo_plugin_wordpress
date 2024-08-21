@@ -88,6 +88,14 @@ msgstr ""
 msgid "Editar"
 msgstr ""
 
+#: startgo-plugin.php:220
+msgid "Anterior"
+msgstr ""
+
+#: startgo-plugin.php:221
+msgid "Siguiente"
+msgstr ""
+
 #: templates/editar-ficha.php:19
 msgid "Sugerencia no encontrada"
 msgstr ""

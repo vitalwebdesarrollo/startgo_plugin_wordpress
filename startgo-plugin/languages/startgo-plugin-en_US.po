@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: StartGo Plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-20 14:52+0000\n"
-"PO-Revision-Date: 2024-08-21 12:41+0200\n"
+"PO-Revision-Date: 2024-08-21 13:39+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -86,6 +86,14 @@ msgstr "Actions"
 #: startgo-plugin.php:208
 msgid "Editar"
 msgstr "Edit"
+
+#: startgo-plugin.php:220
+msgid "Anterior"
+msgstr "Previous"
+
+#: startgo-plugin.php:221
+msgid "Siguiente"
+msgstr "Next"
 
 #: templates/editar-ficha.php:19
 msgid "Sugerencia no encontrada"

@@ -217,8 +217,8 @@ function startgo_plugin_shortcode_sugerencias() {
             'format' => '?paged=%#%',
             'current' => max(1, get_query_var('paged')),
             'total' => $query->max_num_pages,
-            'prev_text' => __('Previous', 'startgo-plugin'),
-            'next_text' => __('Next', 'startgo-plugin'),
+            'prev_text' => __('Anterior', 'startgo-plugin'),
+            'next_text' => __('Siguiente', 'startgo-plugin'),
             'type' => 'array',
         ));
 
