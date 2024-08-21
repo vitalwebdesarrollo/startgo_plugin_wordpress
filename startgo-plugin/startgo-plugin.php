@@ -13,7 +13,8 @@
     load_plugin_textdomain('startgo-plugin', false, dirname(plugin_basename(__FILE__)) . '/languages');
 }
 
-add_action('plugins_loaded', 'startgo_plugin_cargar_textdomain');
+// Cambia el hook a 'init' o 'wp_loaded'
+add_action('init', 'startgo_plugin_cargar_textdomain');
 
 
 //carga de assets del bloque de gutemberg
